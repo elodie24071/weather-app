@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MonPWA">
+    <link rel="apple-touch-icon" href="/img/icon-192x192.png">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="body bg-black flex flex-col gap-5 text-white m-2 my-4">
+    <section class="haut m-0 flex flex-col bg-section pl-5 pr-5 pt-4 pb-8 rounded-2xl">
+        <div class="relative">
+            <!-- icone -->
+            <div class="absolute top-3 left-0 flex items-center pl-2 pointer-events-none">
+                <img src="img/fluent_location-20-regular.svg" alt="">
+            </div>
+            <!-- input -->
+            <input id="ville" class="bg-input text-white rounded-lg p-2 pl-9 mb-8" type="text">
+        </div>
+
+        <div class="meteo flex items-center justify-between">
+            <div class="date">
+                <p class="text-2xl">Lundi</p>
+                <p class="text-sm h-auto">05/12/24</p>
+            </div>
+            <div class="icon_meteo">
+                <img class="object-contain" src="img/couleur/113.svg" alt="">
+            </div>
+            <div class="details text-right">
+                <div class="degre">
+                    <p>28°C</p>
+                </div>
+                <div class="expl">
+                    <p id="conditiondujour" class="text-xs">Heavy Rain</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bas flex flex-col bg-section pl-5 pr-5 pt-4 pb-4 gap-4 rounded-2xl">
+        <h1 class="font-inter font-bold text-xl">Jours suivants</h1>
+        <div class="jours meteo flex items-center justify-between bg-input rounded-lg p-2">
+            <div class="bloc1 w-10">
+                <h3>Mardi</h3>
+                <p class="text-xs">Sunny</p>
+            </div>
+            <div class="bloc2"><img src="img/couleur/350.svg" alt=""></div>
+            <div class="bloc3 text-right">
+                <p>32°</p>
+            </div>
+        </div>
+        <div class="jours meteo flex items-center justify-between bg-input rounded-lg p-2">
+            <div class="bloc1 w-10">
+                <h3>Mercredi</h3>
+                <p class="text-xs">Mostly Sunny</p>
+            </div>
+            <div class="bloc2"><img src="img/couleur/179.svg" alt=""></div>
+            <div class="bloc3 text-right">
+                <p>30°</p>
+            </div>
+        </div>
+        <div class="jours meteo flex items-center justify-between bg-input rounded-lg p-2">
+            <div class="bloc1 w-10">
+                <h3>Jeudi</h3>
+                <p class="text-xs">Mostly Sunny</p>
+            </div>
+            <div class="bloc2"><img src="img/couleur/179.svg" alt=""></div>
+            <div class="bloc3 text-right">
+                <p>30°</p>
+            </div>
+        </div>
+        <div class="jours meteo flex items-center justify-between bg-input rounded-lg p-2">
+            <div class="bloc1 w-10">
+                <h3>Vendredi</h3>
+                <p class="text-xs">Mostly Sunny</p>
+            </div>
+            <div class="bloc2"><img src="img/couleur/179.svg" alt=""></div>
+            <div class="bloc3 text-right">
+                <p>30°</p>
+            </div>
+        </div>
+    </section>
+
+    <button id="installButton" class="hidden bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Installer l'application
+    </button>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/js/sw.js')
+              .then(registration => {
+                console.log('ServiceWorker enregistré avec succès:', registration.scope);
+              })
+              .catch(error => {
+                console.log('Échec de l\'enregistrement du ServiceWorker:', error);
+              });
+          });
+        }
+      </script>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

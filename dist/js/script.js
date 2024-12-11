@@ -92,9 +92,9 @@ villeInput.addEventListener('input', () => {
     // réinitialise timer
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-        // lance recherche après 1min
+        // lance recherche après 6sec
         getWeatherByCity(villeInput.value);
-    }, 7000);
+    }, 6000);
 });
 
 // Installation PWA
